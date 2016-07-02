@@ -5,7 +5,8 @@ var _ = require('lodash');
 
 module.exports = postcss.plugin('remove-dead-class-calls', (opts) => {
 	opts = opts || {
-		htmlFiles: []
+		htmlFiles: [],
+		classesToKeep: []
 	};
 	return (css, results) => {
 		var selectors = [];
@@ -30,7 +31,7 @@ module.exports = postcss.plugin('remove-dead-class-calls', (opts) => {
 			var $ = cheerio.load(fs.readFileSync(htmlFile));
 			$('*').each((i,el) => {
 				if(typeof $(el).attr('class') === 'undefined') { return }
-				var classesToRemove = _.filter($(el).attr('class').split(/ /), (cn) => !selectors.includes('.' + cn));
+				var classesToRemove = _.filter($(el).attr('class').split(/ /), (cn) => (!selectors.includes('.' + cn) && !(opts.classesToKeep.includes(cn) || opts.classesToKeep.includes('.' + cn))));
 				_.each(classesToRemove, (c) => {
 					$(el).removeClass(c);
 				})
@@ -38,4 +39,4 @@ module.exports = postcss.plugin('remove-dead-class-calls', (opts) => {
 			fs.writeFileSync(htmlFile, $.html().replace(/ class=\"\"/g,''));
 		});
 	}
-})
+});
