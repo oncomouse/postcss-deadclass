@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Andrew Pilsch <apilsch@tamu.edu> (http://andrew.pilsch.com)",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.20.0",
