@@ -1,0 +1,17 @@
+{
+  "name": "postcss-deadclass",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "glob": "^7.0.5",
+    "lodash": "^4.13.1",
+    "postcss": "^5.0.21"
+  }
+}
