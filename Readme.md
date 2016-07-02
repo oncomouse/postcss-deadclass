@@ -49,5 +49,5 @@ See [PostCSS](https://github.com/postcss/postcss) docs for examples for your env
 
 ## Todo
 
-* Add an override method
+* ~~Add an override method~~
 * PhantomJS
